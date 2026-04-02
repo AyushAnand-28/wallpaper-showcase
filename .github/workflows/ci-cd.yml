@@ -131,7 +131,7 @@ jobs:
 
       # Needs these secrets: EC2_HOST, EC2_USER, EC2_SSH_KEY, EC2_DEPLOY_PATH
       - name: SSH deploy
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
