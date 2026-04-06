@@ -53,7 +53,7 @@ export default function AuthPage() {
 
   return (
     <div style={{ minHeight: 'calc(100vh - 72px)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--surface-low)', padding: '60px 24px' }}>
-      
+
       <div style={{ width: '100%', maxWidth: 480 }}>
         {/* Logo Header */}
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
@@ -62,9 +62,9 @@ export default function AuthPage() {
             <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.8rem', color: 'var(--primary)', letterSpacing: '-0.5px' }}>SECONDBITE</span>
           </Link>
           <div style={{ marginTop: 12 }}>
-             <span className="section-label-red" style={{ fontStyle: 'italic' }}>
-               {tab === 'login' ? 'Welcome back' : 'Join our community'}
-             </span>
+            <span className="section-label-red" style={{ fontStyle: 'italic' }}>
+              {tab === 'login' ? 'Welcome back' : 'Join our community'}
+            </span>
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export default function AuthPage() {
         <div style={{ background: 'var(--surface)', border: '1px solid var(--primary)', padding: '40px' }}>
           {/* Tabs */}
           <div className="tabs" style={{ marginBottom: 32, display: 'flex', borderBottom: '1px solid var(--primary)' }}>
-            <button 
+            <button
               style={{
                 flex: 1, padding: '16px 0', border: 'none', background: 'transparent',
                 fontFamily: 'var(--font-ui)', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase',
@@ -84,8 +84,8 @@ export default function AuthPage() {
             >
               Sign In
             </button>
-            <button 
-               style={{
+            <button
+              style={{
                 flex: 1, padding: '16px 0', border: 'none', background: 'transparent',
                 fontFamily: 'var(--font-ui)', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase',
                 color: tab === 'register' ? 'var(--primary)' : 'var(--on-surface-variant)',
@@ -100,8 +100,8 @@ export default function AuthPage() {
 
           {apiError && (
             <div style={{ border: '1px solid var(--primary)', background: 'var(--error-container)', padding: '16px', marginBottom: 24, paddingLeft: 20 }}>
-               <span style={{ fontFamily: 'var(--font-display)', color: 'var(--primary)', fontWeight: 700, fontStyle: 'italic' }}>Notice:</span>
-               <span style={{ marginLeft: 8, fontFamily: 'var(--font-body)', color: 'var(--primary)' }}>{apiError}</span>
+              <span style={{ fontFamily: 'var(--font-display)', color: 'var(--primary)', fontWeight: 700, fontStyle: 'italic' }}>Notice:</span>
+              <span style={{ marginLeft: 8, fontFamily: 'var(--font-body)', color: 'var(--primary)' }}>{apiError}</span>
             </div>
           )}
 
@@ -109,20 +109,20 @@ export default function AuthPage() {
             {tab === 'register' && (
               <div className="input-group">
                 <label className="input-label">Full Name</label>
-                <input className={`input ${errors.name ? 'error' : ''}`} placeholder="Priya Sharma" value={form.name} onChange={e => set('name', e.target.value)} />
+                <input className={`input ${errors.name ? 'error' : ''}`} value={form.name} onChange={e => set('name', e.target.value)} />
                 {errors.name && <span className="input-error-msg">{errors.name}</span>}
               </div>
             )}
 
             <div className="input-group">
               <label className="input-label">Email Address</label>
-              <input className={`input ${errors.email ? 'error' : ''}`} type="email" placeholder="you@example.com" value={form.email} onChange={e => set('email', e.target.value)} />
+              <input className={`input ${errors.email ? 'error' : ''}`} type="email" value={form.email} onChange={e => set('email', e.target.value)} />
               {errors.email && <span className="input-error-msg">{errors.email}</span>}
             </div>
 
             <div className="input-group">
               <label className="input-label">Password</label>
-              <input className={`input ${errors.password ? 'error' : ''}`} type="password" placeholder="••••••••" value={form.password} onChange={e => set('password', e.target.value)} />
+              <input className={`input ${errors.password ? 'error' : ''}`} type="password" value={form.password} onChange={e => set('password', e.target.value)} />
               {errors.password && <span className="input-error-msg">{errors.password}</span>}
             </div>
 
@@ -130,13 +130,13 @@ export default function AuthPage() {
               <>
                 <div className="input-group">
                   <label className="input-label">Confirm Password</label>
-                  <input className={`input ${errors.confirmPassword ? 'error' : ''}`} type="password" placeholder="••••••••" value={form.confirmPassword} onChange={e => set('confirmPassword', e.target.value)} />
+                  <input className={`input ${errors.confirmPassword ? 'error' : ''}`} type="password" value={form.confirmPassword} onChange={e => set('confirmPassword', e.target.value)} />
                   {errors.confirmPassword && <span className="input-error-msg">{errors.confirmPassword}</span>}
                 </div>
 
                 <div className="input-group">
                   <label className="input-label">Phone (optional)</label>
-                  <input className="input" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={e => set('phone', e.target.value)} />
+                  <input className="input" type="tel" value={form.phone} onChange={e => set('phone', e.target.value)} />
                 </div>
 
                 <div className="input-group mt-2">
