@@ -141,7 +141,7 @@ export default function CartPage() {
                         <div key={product._id} className="card p-4" style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                           <div style={{ width: 64, height: 64, borderRadius: 12, background: 'var(--surface-highest)', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, overflow: 'hidden' }}>
                             {product.imageUrl ? (
-                              <img src={`http://localhost:5000${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                              <img src={product.imageUrl?.startsWith('http') ? product.imageUrl : `http://localhost:5000${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             ) : (CATEGORY_ICON[product.category] || <Utensils size={32} strokeWidth={1.5} />)}
                           </div>
                           <div style={{ flex: 1, minWidth: 0 }}>

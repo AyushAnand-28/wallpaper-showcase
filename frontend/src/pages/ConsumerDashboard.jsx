@@ -263,7 +263,7 @@ export default function ConsumerDashboard() {
             <div className="editorial-box" style={{ padding: '40px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 24, marginBottom: 32, paddingBottom: 32, borderBottom: '1px solid var(--outline-variant)' }}>
                 {user?.avatarUrl ? (
-                  <img src={`http://localhost:5000${user.avatarUrl}`} alt="Profile" style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--outline-variant)', flexShrink: 0 }} />
+                  <img src={user.avatarUrl?.startsWith('http') ? user.avatarUrl : `http://localhost:5000${user.avatarUrl}`} alt="Profile" style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--outline-variant)', flexShrink: 0 }} />
                 ) : (
                   <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'var(--surface-low)', border: '1px solid var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', fontFamily: 'var(--font-display)', color: 'var(--primary)', fontWeight: 800 }}>
                     {user?.name?.[0]?.toUpperCase() || 'U'}

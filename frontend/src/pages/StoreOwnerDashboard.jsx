@@ -57,7 +57,7 @@ function ProductForm({ initial, onSave, onCancel }) {
           <div className="input-group">
             <label className="input-label">Product Image</label>
             <input type="file" accept="image/*" className="input" onChange={e => setImageFile(e.target.files[0])} style={{ padding: '8px' }} />
-            {initial?.imageUrl && !imageFile && <div style={{ marginTop: 8 }}><img src={`http://localhost:5000${initial.imageUrl}`} alt="Current" height={60} style={{ borderRadius: 8, border: '1px solid var(--outline-variant)' }} /></div>}
+            {initial?.imageUrl && !imageFile && <div style={{ marginTop: 8 }}><img src={initial.imageUrl?.startsWith('http') ? initial.imageUrl : `http://localhost:5000${initial.imageUrl}`} alt="Current" height={60} style={{ borderRadius: 8, border: '1px solid var(--outline-variant)' }} /></div>}
           </div>
           <div className="input-group"><label className="input-label">Description</label><textarea className="input" value={form.description} onChange={e => set('description', e.target.value)} rows={2} /></div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>

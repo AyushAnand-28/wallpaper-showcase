@@ -47,7 +47,7 @@ export default function ProductCard({ product }) {
     <div className="product-card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <div className="product-card-img-placeholder" style={{ color: 'var(--primary)', padding: product.imageUrl ? 0 : undefined, overflow: 'hidden' }}>
         {product.imageUrl ? (
-           <img src={`http://localhost:5000${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+           <img src={product.imageUrl?.startsWith('http') ? product.imageUrl : `http://localhost:5000${product.imageUrl}`} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         ) : (
           CATEGORY_ICON[product.category] || CATEGORY_ICON.OTHER
         )}
