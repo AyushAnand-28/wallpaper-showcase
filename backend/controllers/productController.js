@@ -7,7 +7,7 @@ import Store from "../models/Store.js";
 const createProduct = async (req, res) => {
   try {
     const { name, description, price, originalPrice, quantity, unit, expiryDate, category, storeId } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : req.body.imageUrl || null;
+    const imageUrl = req.file ? req.file.path : req.body.imageUrl || null;
 
     if (!name || !price || !originalPrice || !quantity || !expiryDate || !storeId) {
       return res.status(400).json({ message: "name, price, originalPrice, quantity, expiryDate, and storeId are required" });
@@ -82,7 +82,7 @@ const updateProduct = async (req, res) => {
     });
 
     if (req.file) {
-      product.imageUrl = `/uploads/${req.file.filename}`;
+      product.imageUrl = req.file.path;
     } else if (req.body.imageUrl !== undefined) {
       product.imageUrl = req.body.imageUrl;
     }

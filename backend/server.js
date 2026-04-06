@@ -17,8 +17,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static uploads
-app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+// Serve static uploads (removed as we use Cloudinary now)
 
 // Health check
 app.get("/", (req, res) => {
