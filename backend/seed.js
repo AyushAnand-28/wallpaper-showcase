@@ -13,22 +13,12 @@ dotenv.config();
 //    $env:SEED_CONFIRM="true"; node seed.js   (PowerShell)
 //    SEED_CONFIRM=true node seed.js           (bash/mac)
 // ─────────────────────────────────────────────────────────────────────────────
-if (process.env.NODE_ENV === "production" && process.env.SEED_CONFIRM !== "true") {
-  console.error(
-    "\n❌  Refusing to seed: NODE_ENV is 'production'.\n" +
-    "   Set SEED_CONFIRM=true explicitly if you really intend this.\n"
-  );
-  process.exit(1);
-}
-
 if (process.env.SEED_CONFIRM !== "true") {
-  console.error(
-    "\n❌  Refusing to seed: SEED_CONFIRM is not 'true'.\n" +
-    "   PowerShell:  $env:SEED_CONFIRM=\"true\"; node seed.js\n" +
-    "   Bash:        SEED_CONFIRM=true node seed.js\n" +
-    "   WARNING: This will DELETE all existing data.\n"
+  console.log(
+    "\n⏩ Skipping seed: SEED_CONFIRM is not 'true'.\n" +
+    "   To seed manually or on deploy, set SEED_CONFIRM=true in environment variables.\n"
   );
-  process.exit(1);
+  process.exit(0);
 }
 
 console.log("⚠️  SEED_CONFIRM=true detected. Wiping and re-seeding the database...\n");
